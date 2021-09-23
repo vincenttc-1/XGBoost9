@@ -68,6 +68,7 @@ def sentece():
 @app.route('/api/file', methods=["POST"])
 def byFile():
     request_data = request.get_json()
+    print(request_data)
     data_judul = request_data['data']
 
     arr_text = []
