@@ -43,7 +43,8 @@ def stemming_word(x):
   x = stemmer.stem(x)
   return x
 
-df2['Judul Berita (Bersih)'] = df2['title'].apply(text_preproc)
+df2['Judul Berita preproc'] = df2['title'].apply(text_preproc)
+df2['Judul Berita (Bersih)'] = df2['Judul Berita preproc'].apply(stemming_word)
 
 vectorizer = TfidfVectorizer(binary=True)
 
