@@ -66,6 +66,7 @@ def home():
 @app.route('/api/sentence', methods=["GET"])
 def sentece():
     arr_title = []
+
     title = request.args.get("title")
     arr_title.append(title) 
     preproc_arr_title = list(map(text_preproc,arr_title))
@@ -79,13 +80,14 @@ def sentece():
 def byFile():
     data_judul = request.get_json()
 
-    arr_text = []
+    arr_title = []
 
     for f in data_judul :
-      arr_text.append(f)
+      arr_title.append(f)
 
-    clean_arr_text = list(map(text_preproc,arr_text))
-    x_sentence = vectorizer.transform(clean_arr_text)
+    preproc_arr_title = list(map(text_preproc,arr_title))
+    clean_arr_title = list(map(stemming_word,preproc_arr_title))
+    x_sentence = vectorizer.transform(clean_arr_title)
     predict = xgb_model_loaded.predict(x_sentence)
 
     juduls = []
