@@ -93,7 +93,7 @@ def byFile():
     juduls = []
     prediksis = []
     for count,f in enumerate(predict) :
-      judul = arr_text[count],
+      judul = arr_title[count],
       prediksi = int(f)
       juduls.append(judul)
       prediksis.append(prediksi)
