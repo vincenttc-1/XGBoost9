@@ -35,6 +35,14 @@ def text_preproc(x):
   x = re.sub(r'\s{2,}', ' ', x)
   return x
 
+#stemming
+factory = StemmerFactory()
+stemmer = factory.create_stemmer()
+
+def stemming_word(x):
+  x = stemmer.stem(x)
+  return x
+
 df2['Judul Berita (Bersih)'] = df2['title'].apply(text_preproc)
 
 vectorizer = TfidfVectorizer(binary=True)
