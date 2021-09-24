@@ -100,13 +100,6 @@ def byFile():
 
     return jsonify({"text":juduls,"predictions":prediksis})
 
-@app.route('/api/testjson', methods=["POST"])
-def postJsonHandler():
-    print (request.is_json)
-    content = request.get_json()
-    print (content)
-    return 'JSON posted'
-
 if __name__ == '__main__':
     # Threaded option to enable multiple instances for multiple user access support
     app.run(threaded=True, port=5000)
