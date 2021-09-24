@@ -86,7 +86,7 @@ def byFile():
       arr_title.append(f)
 
     preproc_arr_title = list(map(text_preproc,arr_title))
-    clean_arr_title = list(map(stemming_word,preproc_arr_title))
+    clean_arr_title = list(map(stemming_word,preproc_arr_title)) 
     x_sentence = vectorizer.transform(clean_arr_title)
     predict = xgb_model_loaded.predict(x_sentence)
 
